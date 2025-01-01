@@ -23,7 +23,8 @@ public class SomeRandomTest {
     })
 
     public void otherTest(int a,int b,int expected){
-        assertEquals(expected,a+b);
+        assertEquals(expected,a+b,"done");
+
     }
 
 //we can also use @valueSource in place of CsvSource like
