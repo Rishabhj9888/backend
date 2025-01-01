@@ -107,6 +107,16 @@
 			<artifactId>springdoc-openapi-ui</artifactId>
 			<version>1.7.0</version>
 		</dependency>
+		<dependency>
+			<groupId>net.bytebuddy</groupId>
+			<artifactId>byte-buddy</artifactId>
+			<version>1.14.18</version>  <!-- or latest -->
+		</dependency>
+
+
+
+
+
 
 
 

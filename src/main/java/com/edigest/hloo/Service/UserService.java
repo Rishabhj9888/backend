@@ -17,7 +17,7 @@ public class UserService {
 
 
     public entry saveEntry(entry entry){
-        entry.setPassword(encoder.encode(entry.getPassword()));
+       entry.setPassword(encoder.encode(entry.getPassword()));
         repo.save(entry);
         return entry;
     }
@@ -31,6 +31,9 @@ public class UserService {
     public boolean checkPassword(String id, String password) {
         Optional<entry> entryOptional = repo.findById(id);
         return entryOptional.map(entry -> entry.getPassword().equals(password)).orElse(false);
+    }
+    public void checking(){
+        System.out.println("all is fine");
     }
 
     }
