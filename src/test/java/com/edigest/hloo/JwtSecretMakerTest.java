@@ -1,30 +1,31 @@
 package com.edigest.hloo;
 
-import io.jsonwebtoken.Jwts;
+
 import io.jsonwebtoken.security.Keys;
-import jakarta.xml.bind.DatatypeConverter;
+
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import javax.crypto.SecretKey;
 
 import java.util.Base64;
 
-import static org.yaml.snakeyaml.tokens.Token.ID.Key;
+import static io.jsonwebtoken.security.Keys.secretKeyFor;
 
-//import javax.crypto.SecretKey;
 
-//import static org.yaml.snakeyaml.tokens.Token.ID.Key;
+//%s is format specifier for string
 
-//import static org.yaml.snakeyaml.tokens.Token.ID.Key;
 
 public class JwtSecretMakerTest {
     @Test
-    public void generateSecretKey(){
+    public void testgenerateSecretKey(){
 //        SecretKey key= Jwts.SIG.HS512.key().build();
-        SecretKey key = Keys.secretKeyFor(io.jsonwebtoken.SignatureAlgorithm.HS512);
+        SecretKey key = secretKeyFor(io.jsonwebtoken.SignatureAlgorithm.HS512);
 
 //        String encodeKey = DatatypeConverter.printHexBinary(Key.getEncoded);
         String encodedKey = Base64.getEncoder().encodeToString(key.getEncoded());
         System.out.printf("\n=[%s]\n",encodedKey);
+        Assertions.assertNotNull(encodedKey);
+        Assertions.assertFalse(encodedKey.isEmpty());
     }
 }
